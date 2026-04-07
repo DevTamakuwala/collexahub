@@ -18,8 +18,8 @@ def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "
 
 android {
     // 1. Updated Namespace to match a professional structure
-    namespace = "com.shubham.collexahub"
-    compileSdk = 34
+    namespace = "com.example.collexahub"
+    compileSdk = 35
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -33,10 +33,10 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.shubham.collexahub"
+        applicationId = "com.example.collexahub"
 
         // 3. Explicitly set minSdk for Firebase compatibility
-        minSdkVersion = flutter.minSdkVersion
+        minSdkVersion = 23
         targetSdk = 34
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
