@@ -1,0 +1,62 @@
+plugins {
+    id "com.android.application"
+    id "com.google.gms.google-services" // Firebase
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader("UTF-8") { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty("flutter.versionCode") ?: "1"
+def flutterVersionName = localProperties.getProperty("flutter.versionName") ?: "1.0"
+
+android {
+    // 1. Updated Namespace to match a professional structure
+    namespace = "com.shubham.collexahub"
+    compileSdk = 34
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        // 2. Updated to Java 17 (Required for Gradle 8+)
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+
+    defaultConfig {
+        applicationId = "com.shubham.collexahub"
+
+        // 3. Explicitly set minSdk for Firebase compatibility
+        minSdkVersion = flutter.minSdkVersion
+        targetSdk = 34
+        versionCode = flutterVersionCode.toInteger()
+        versionName = flutterVersionName
+
+        // 4. Enable MultiDex (Fixes "Too many methods" error with Firebase)
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // Using debug signing for now so you can build without a keystore
+            signingConfig = signingConfigs.debug
+
+            // Optimization settings for a smaller APK
+            shrinkResources false
+            minifyEnabled false
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}

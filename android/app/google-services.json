@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "545539448865",
+    "project_id": "collexa-hub-5f0d8",
+    "storage_bucket": "collexa-hub-5f0d8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545539448865:android:dcc7e63f25ebb72d340360",
+        "android_client_info": {
+          "package_name": "com.example.collexahub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcdZViTuD7p2UET0qomE19IjWSq1FhQsc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
